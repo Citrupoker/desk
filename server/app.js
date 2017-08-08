@@ -11,8 +11,6 @@ require('dotenv').config();
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var login = require('./routes/login');
-var logout = require('./routes/logout');
 
 var app = express();
 mongoose.connect(process.env.MONGO_URI);
@@ -31,9 +29,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users/register', register);
-app.use('/users/login', login);
-app.use('/users/logout', logout);
+app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

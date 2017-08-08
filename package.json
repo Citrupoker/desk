@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "cd client && ng build --prod && cd ../server && node ./bin/www"
+    "start": "cd server && node ./bin/www"
   },
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",

@@ -13,7 +13,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(process.env.MONGODB_URI);
 require('./config/passport')(passport);
 
 // view engine setup

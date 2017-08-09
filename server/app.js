@@ -7,13 +7,17 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
+var app = express();
 require('dotenv').config();
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 
-var app = express();
+
 mongoose.connect(process.env.MONGODB_URI);
+
+app.set('superSecret', process.env.secret);
+
 require('./config/passport')(passport);
 
 // view engine setup
@@ -30,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use(passport.initialize());
 app.use('/', index);
 app.use('/users', users);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
 const bcrypt   = require('bcrypt-nodejs');
 
+
 let userSchema = mongoose.Schema({
     local: {
         username: String,
-        password: String
+        password: String,
+        admin: Boolean
     }
 });
 

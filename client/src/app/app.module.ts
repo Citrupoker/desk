@@ -14,13 +14,15 @@ import {
   LocationStrategy,
   HashLocationStrategy
 } from '@angular/common';
+import { HomeComponent } from './components/home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     NoContentComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

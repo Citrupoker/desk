@@ -20,6 +20,7 @@ export class LoginComponent {
     this.userService.login(this.model)
       .subscribe(
         data => {
+          localStorage.setItem('token', data['_body'].token);
           this.router.navigate(['']);
         },
         error => {

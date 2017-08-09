@@ -27,4 +27,7 @@ export class NavbarComponent {
     this.status.isopen = !this.status.isopen;
   }
 
+  isLoggedIn(){
+    return !!localStorage.getItem('token')
+  }
 }

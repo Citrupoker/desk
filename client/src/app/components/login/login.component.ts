@@ -15,7 +15,7 @@ export class LoginComponent {
     private router: Router,
     private userService: UserService){}
 
-  register() {
+  login() {
     this.loading = true;
     this.userService.login(this.model)
       .subscribe(
@@ -26,5 +26,13 @@ export class LoginComponent {
         error => {
           this.loading = false;
         });
+  }
+
+  logout(){
+      localStorage.clear();
+  }
+
+  isLoggedIn(){
+    return !!localStorage.getItem('token')
   }
 }

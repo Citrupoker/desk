@@ -30,4 +30,7 @@ export class NavbarComponent {
   isLoggedIn(){
     return !!localStorage.getItem('token')
   }
+  logout(){
+    localStorage.clear();
+  }
 }

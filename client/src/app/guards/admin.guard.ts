@@ -6,7 +6,7 @@ import {Http} from '@angular/http';
 export class AdminGuard implements CanActivate {
 result: Boolean;
   constructor(private router: Router, private http: Http) {
-
+    console.log('constructor called');
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
@@ -16,7 +16,7 @@ result: Boolean;
       this.router.navigate(['/admin'], { queryParams: { returnUrl: state.url }});
     });
     // not logged in so redirect to login page with the return url
-    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
-    return false;
+    /*this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
+    return false;*/
   }
 }

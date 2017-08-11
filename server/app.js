@@ -36,8 +36,9 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use(passport.initialize());
 app.use('/', index);
 app.use('/users', users);
-app.use(middleware.middlewareToken);
 app.use('/admin', admin);
+app.use(middleware.middlewareToken);
+
 
 // catch 404 and forward to error handler
 app.use(middleware.middleware404);

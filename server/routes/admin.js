@@ -9,8 +9,8 @@ function isAdmin(req, res, next) {
     }
 }
 
-router.get('/', isAdmin, (req, res) => {
-    console.log(req.user);
+router.get('/', (req, res) => {
+    console.log(req);
     res.send(req.user);
 });
 

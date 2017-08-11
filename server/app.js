@@ -10,7 +10,7 @@ var passport = require('passport');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var app = express();
-var middleware  = require('libs/middleware.js')
+var middleware  = require('./libs/middleware.js')
 
 var index = require('./routes/index');
 var users = require('./routes/users');

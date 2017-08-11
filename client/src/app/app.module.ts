@@ -9,12 +9,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegisterComponent } from './components/register/index';
 import {CollapseModule} from 'ngx-bootstrap';
 import { LoginComponent } from './components/login/login.component';
-import {UserService} from "./services/user.service";
+import {UserService} from './services/user.service';
 import {
   LocationStrategy,
   HashLocationStrategy
 } from '@angular/common';
 import { HomeComponent } from './components/home/home.component';
+import { AdminComponent } from './components/admin/admin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { HomeComponent } from './components/home/home.component';
     NoContentComponent,
     RegisterComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,7 @@
         <li><a routerLink="/login" *ngIf="!isLoggedIn()">Login</a></li>
         <li><a routerLink="/login" (click)="logout()" *ngIf="isLoggedIn()">Logout</a></li>
         <li><a routerLink="/register" *ngIf="!isLoggedIn()">Register</a></li>
+        <li><a routerLink="/admin">Admin</a></li>
       </ul>
         </div>
     <nav class="visible-xs hidden-md-up">
@@ -22,6 +23,7 @@
         <li class="nav-item" ><a class="nav-link" routerLink="/">Home</a></li>
         <li class="nav-item" ><a class="nav-link" routerLink="/login">Login</a></li>
         <li class="nav-item" ><a class="nav-link" routerLink="/register">Register</a></li>
+        <li class="nav-item" ><a class="nav-link" routerLink="/admin">Admin</a></li>
       </ul>
     </nav>
     </div>

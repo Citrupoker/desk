@@ -16,6 +16,7 @@ import {
 } from '@angular/common';
 import { HomeComponent } from './components/home/home.component';
 import { AdminComponent } from './components/admin/admin.component';
+import {AdminGuard} from "./guards/admin.guard";
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,7 @@ import { AdminComponent } from './components/admin/admin.component';
     CollapseModule.forRoot(),
     routing
   ],
-  providers: [UserService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [UserService,AdminGuard, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

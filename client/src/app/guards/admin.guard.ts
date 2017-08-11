@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import {Http, Response} from '@angular/http';
+import {Http} from '@angular/http';
 
 @Injectable()
 export class AdminGuard implements CanActivate {
 result: Boolean;
   constructor(private router: Router, private http: Http) {
-    this.http.get('/admin').map((response: Response) =>
-      this.result = response.json());
+    this.http.get('/admin').map((response) =>
+    {this.result = response.json(); console.log(this.result);});
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 
-    if(this.result){
+   if(this.result){
       this.router.navigate(['/admin'], { queryParams: { returnUrl: state.url }});
       return true;
     }

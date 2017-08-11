@@ -6,16 +6,15 @@ import {Http} from '@angular/http';
 export class AdminGuard implements CanActivate {
 result: Boolean;
   constructor(private router: Router, private http: Http) {
-    this.http.get('/admin').map((response) =>
-    {this.result = response.json(); console.log(this.result);});
+
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-
-   if(this.result){
+    console.log('canActivate called');
+    this.http.get('http://localhost:3000/admin').map((response) => {
+      console.log(response.json());
       this.router.navigate(['/admin'], { queryParams: { returnUrl: state.url }});
-      return true;
-    }
+    });
     // not logged in so redirect to login page with the return url
     this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
     return false;

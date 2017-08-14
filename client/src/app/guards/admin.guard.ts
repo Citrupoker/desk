@@ -11,10 +11,13 @@ result: Boolean;
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     console.log('canActivate called');
-    this.router.navigate(['/admin'], { queryParams: { returnUrl: state.url }});
+    if(localStorage.getItem('token')){
+      this.router.navigate(['/admin'], { queryParams: { returnUrl: state.url }});
     return true;
+    }
+    
     // not logged in so redirect to login page with the return url
-    /*this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
-    return false;*/
+    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
+    return false;
   }
 }

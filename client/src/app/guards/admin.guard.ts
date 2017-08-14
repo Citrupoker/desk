@@ -11,10 +11,8 @@ result: Boolean;
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     console.log('canActivate called');
-    this.http.get('http://localhost:3000/admin').map((response) => {
-      console.log(response.json());
-      this.router.navigate(['/admin'], { queryParams: { returnUrl: state.url }});
-    });
+    this.router.navigate(['/admin'], { queryParams: { returnUrl: state.url }});
+    return true;
     // not logged in so redirect to login page with the return url
     /*this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
     return false;*/

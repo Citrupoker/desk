@@ -37,7 +37,6 @@ app.use(passport.initialize());
 app.use('/', index);
 app.use('/users', users);
 app.use('/admin', admin);
-app.use(middleware.middlewareToken);
 
 
 // catch 404 and forward to error handler

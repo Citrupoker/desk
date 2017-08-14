@@ -14,11 +14,8 @@ var middleware  = require('./libs/middleware.js')
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var admin = require('./routes/admin');
 
 mongoose.connect(process.env.MONGODB_URI);
-
-app.set('superSecret', process.env.secret);
 
 require('./config/passport')(passport);
 
@@ -33,10 +30,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'dist')));
+
+app.use(session({
+    secret: process.env.secret,
+    resave: false,
+    saveUninitialized: true
+}));
 app.use(passport.initialize());
+app.use(passport.session());
+
 app.use('/', index);
 app.use('/users', users);
-app.use('/admin', admin);
 
 
 // catch 404 and forward to error handler
